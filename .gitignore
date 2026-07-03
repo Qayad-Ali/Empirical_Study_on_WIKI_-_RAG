@@ -1,0 +1,9 @@
+# environment / caches (regenerable, don't commit)
+.venv/
+__pycache__/
+*.pyc
+
+# the 14 MB paper we parked (not part of the 4-paper corpus)
+raw/_skip/
+
+# keep results/ tracked so the README charts render on GitHub

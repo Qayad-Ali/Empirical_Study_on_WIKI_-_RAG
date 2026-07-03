@@ -1,0 +1,9 @@
+ollama
+sentence-transformers
+faiss-cpu
+pymupdf
+pyyaml
+pandas
+matplotlib
+python-dotenv
+numpy

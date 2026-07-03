@@ -1,0 +1,26 @@
+# Index
+
+_Catalog of every page. The query step reads this first._
+
+- [[ablation-studies]] — Ablation Studies: Ablation studies show that both pre-training tasks (MLM and NSP) are essential for BERT's performance.  (sources: [bert])
+- [[alignment-criteria]] — Alignment Criteria: Models are aligned with user intentions through three criteria: helpfulness, honesty, and harmlessness. These are measured via labeler judgments and task-specific benchmarks.  (sources: [instructgpt])
+- [[bidirectional-training]] — Bidirectional Training: BERT's bidirectional training enables it to capture contextual relationships in both directions, unlike previous models that processed text unidirectionally.  (sources: [bert])
+- [[encoder-decoder-architecture]] — Encoder-Decoder Architecture: The Transformer model uses an encoder-decoder architecture based entirely on self-attention mechanisms, replacing traditional recurrence layers.  (sources: [transformer])
+- [[evaluation-methodology]] — Evaluation Methodology: The paper evaluates model alignment through human preference ratings, truthfulness metrics, and bias/toxicity benchmarks. Evaluations are conducted on API prompts and GPT-3-style prompts.  (sources: [instructgpt])
+- [[feature-based-vs-fine-tuning]] — Feature-based vs Fine-tuning Approaches: BERT can be used with either a fine-tuning approach (adding task-specific layers) or a feature-based approach (extracting fixed representations).  (sources: [bert])
+- [[few-shot]] — Few-Shot Learning: Few-shot learning uses a small number of examples (K) during inference, reducing reliance on task-specific data while balancing performance and efficiency.  (sources: [gpt3])
+- [[fine-tuning-process]] — Fine-tuning Process: InstructGPT uses three-stage fine-tuning: Supervised Fine-Tuning (SFT), Reward Modeling (RM), and Reinforcement Learning with Human Feedback (PPO). Each stage builds on the previous one to align models with human preferences.  (sources: [instructgpt])
+- [[hyperparameter-ablation]] — Hyperparameter Ablation: The paper mentions hyperparameter tuning in training but does not provide detailed ablation studies. Key parameters include learning rate decay, dropout rates, and KL penalty coefficients.  (sources: [instructgpt])
+- [[model-architecture]] — Model Architecture: InstructGPT is based on GPT-3's pretrained language model architecture, with no architectural changes during fine-tuning. The focus is on training procedures rather than model design.  (sources: [instructgpt])
+- [[model-size-impact]] — Model Size Impact: Larger BERT models (BERTLARGE) consistently outperform smaller variants (BERTBASE) across multiple tasks.  (sources: [bert])
+- [[multi-headed-attention]] — Multi-Headed Attention: Multi-headed attention allows the model to jointly attend to information from different representation subspaces, enhancing the model's ability to capture complex patterns.  (sources: [transformer])
+- [[one-shot]] — One-Shot Learning: One-shot learning combines a single demonstration with a natural language task description, bridging the gap between zero-shot and few-shot methods.  (sources: [gpt3])
+- [[pre-training-tasks]] — Pre-training Tasks: BERT is pre-trained on two tasks: Masked Language Model (MLM) and Next Sentence Prediction (NSP), which help it learn contextual representations.  (sources: [bert])
+- [[recurrent-models]] — Recurrent Models: The paper highlights the limitations of recurrent neural networks (RNNs) in sequence modeling tasks, particularly their inability to handle long-range dependencies effectively.  (sources: [transformer])
+- [[self-attention]] — Self-Attention Mechanism: The Transformer model replaces traditional recurrence with self-attention mechanisms, enabling parallel processing and capturing long-range dependencies.  (sources: [transformer])
+- [[squad-results]] — SQuAD Results: BERT achieves state-of-the-art results on SQuAD 1.1 and 2.0, outperforming previous models like ELMo and GPT.  (sources: [bert])
+- [[swag-results]] — SWAG Results: BERT achieves superior performance on the SWAG dataset compared to previous models like ESIM+ELMo and OpenAI GPT.  (sources: [bert])
+- [[training-data-sources]] — Training Data Sources: The paper describes three distinct datasets used for fine-tuning InstructGPT models: SFT (Supervised Fine-Tuning), RM (Reward Modeling), and PPO (Proximal Policy Optimization). These datasets are derived from labeler-written prompts and API-submitted prompts.  (sources: [instructgpt])
+- [[training-data]] — Training Data: The Transformer model was trained on the Wall Street Journal (WSJ) portion of the Penn Treebank and semi-supervised corpora, with varying vocabulary sizes depending on the training setting.  (sources: [transformer])
+- [[training-process]] — Training Process: Training involves large-scale model parallelism, optimized batch sizes, and learning rates tailored to model size.  (sources: [gpt3])
+- [[zero-shot]] — Zero-Shot Learning: Zero-shot learning involves performing tasks without any demonstrations, relying solely on natural language instructions. This method is the most challenging but aligns closely with human task understanding.  (sources: [gpt3])

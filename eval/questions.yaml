@@ -1,0 +1,102 @@
+# 24 held-out questions, 6 per tier, over transformer/bert/gpt3/instructgpt.
+# tier 1 single-fact | 2 single-doc reasoning | 3 multi-hop synthesis | 4 contradiction/tension
+
+- id: t1_transformer_layers
+  tier: 1
+  question: "In the original Transformer, how many layers are stacked in the encoder and in the decoder of the base model?"
+  reference: "Six layers each (N = 6) in both the encoder and the decoder."
+- id: t1_transformer_dims
+  tier: 1
+  question: "What are d_model and the number of attention heads h in the Transformer base model?"
+  reference: "d_model = 512 and h = 8 attention heads."
+- id: t1_bert_objectives
+  tier: 1
+  question: "What two pre-training objectives does BERT use?"
+  reference: "Masked Language Modeling (MLM) and Next Sentence Prediction (NSP)."
+- id: t1_bert_mask_pct
+  tier: 1
+  question: "What fraction of WordPiece tokens does BERT mask for the masked-LM objective?"
+  reference: "15 percent of tokens."
+- id: t1_gpt3_params
+  tier: 1
+  question: "How many parameters does the largest GPT-3 model have?"
+  reference: "175 billion parameters."
+- id: t1_instructgpt_steps
+  tier: 1
+  question: "What are the three steps of the InstructGPT training method?"
+  reference: "Supervised fine-tuning on demonstrations, then a reward model trained from human comparisons, then RL (PPO) against that reward model."
+
+- id: t2_transformer_posenc
+  tier: 2
+  question: "Why does the Transformer need positional encodings?"
+  reference: "Self-attention is order-invariant with no recurrence or convolution, so position information must be injected explicitly for the model to use word order."
+- id: t2_transformer_scale
+  tier: 2
+  question: "Why are dot products scaled by 1/sqrt(d_k) in scaled dot-product attention?"
+  reference: "Large d_k makes dot products grow large and push softmax into low-gradient regions; dividing by sqrt(d_k) keeps them in a stable range."
+- id: t2_bert_why_masked
+  tier: 2
+  question: "Why does BERT use a masked LM instead of a standard left-to-right language model?"
+  reference: "To get deep bidirectional context; a left-to-right LM only sees the left, and naive bidirectional conditioning would let a token see itself, so masking hides the target."
+- id: t2_gpt3_incontext
+  tier: 2
+  question: "What is in-context learning as described in the GPT-3 paper?"
+  reference: "The model performs a task from instructions and a few examples in the prompt at inference time, with no gradient updates or parameter changes."
+- id: t2_gpt3_scale_fewshot
+  tier: 2
+  question: "According to the GPT-3 paper, how does model scale relate to few-shot performance?"
+  reference: "Larger models are much better few-shot learners; task-agnostic few-shot ability improves with scale, sometimes rivaling fine-tuned models."
+- id: t2_instructgpt_small_beats_big
+  tier: 2
+  question: "Why can a 1.3B-parameter InstructGPT model be preferred to the 175B GPT-3?"
+  reference: "Human-feedback alignment makes outputs more helpful and closer to user intent, so raters preferred the smaller aligned model despite far fewer parameters."
+
+- id: t3_objective_evolution
+  tier: 3
+  question: "How did the training objective evolve from BERT to GPT-3 to InstructGPT, and why?"
+  reference: "BERT: masked bidirectional LM fine-tuned per task. GPT-3: autoregressive LM enabling few-shot in-context learning without fine-tuning. InstructGPT: adds RLHF to align to human intent. The arc goes fine-tuning -> prompting -> alignment."
+- id: t3_adaptation_contrast
+  tier: 3
+  question: "Contrast how BERT and GPT-3 adapt to a new downstream task."
+  reference: "BERT updates weights by gradient fine-tuning on labeled task data. GPT-3 changes no weights; it conditions on a few in-prompt examples (in-context learning)."
+- id: t3_attention_lineage
+  tier: 3
+  question: "How does the attention mechanism from the Transformer carry into BERT and GPT-3?"
+  reference: "Both are Transformer-based: BERT uses the encoder with bidirectional self-attention, GPT-3 uses the decoder with causal self-attention. Attention is the shared substrate."
+- id: t3_human_data_role
+  tier: 3
+  question: "How does the role of human-labeled data change from BERT to GPT-3 to InstructGPT?"
+  reference: "BERT needs labeled data per task. GPT-3 minimizes it via few-shot prompting. InstructGPT reintroduces human data as demonstrations and preference comparisons for alignment."
+- id: t3_finetune_to_prompt
+  tier: 3
+  question: "Why did the field move from fine-tuning toward prompting, and what limit of scaling did InstructGPT identify?"
+  reference: "Fine-tuning needs a labeled dataset and a model per task; prompting generalizes without that. InstructGPT showed scaling alone does not make models follow intent or stay helpful and truthful, motivating alignment."
+- id: t3_directionality_goals
+  tier: 3
+  question: "How do BERT's bidirectionality and GPT's unidirectionality reflect different design goals?"
+  reference: "BERT's bidirectional encoder targets understanding tasks via fine-tuning. GPT's causal decoder targets generation and enables autoregressive in-context learning."
+
+- id: t4_finetuning_necessary
+  tier: 4
+  question: "Is task-specific fine-tuning necessary to adapt a language model? Do the papers agree?"
+  reference: "They disagree: BERT treats fine-tuning as the way to adapt; GPT-3 shows strong performance with no parameter updates via few-shot prompting."
+- id: t4_bigger_better
+  tier: 4
+  question: "Does bigger always mean better? Contrast GPT-3's scaling thesis with InstructGPT's finding."
+  reference: "Tension: GPT-3 argues capability grows with scale; InstructGPT found a 1.3B aligned model beat 175B on human preference, so scale alone is not sufficient."
+- id: t4_data_needs
+  tier: 4
+  question: "Do these papers agree on how much labeled human data you need?"
+  reference: "They frame it differently: BERT needs substantial labeled data per task, GPT-3 little via few-shot, InstructGPT curated demonstrations and comparisons for alignment."
+- id: t4_bi_vs_uni
+  tier: 4
+  question: "Is bidirectional or unidirectional attention right, and what do BERT and GPT argue?"
+  reference: "Opposing positions: BERT argues bidirectional context matters for understanding; GPT uses causal attention and argues it enables generation and in-context learning."
+- id: t4_encoder_decoder
+  tier: 4
+  question: "Where do the Transformer and BERT diverge on encoder-decoder structure?"
+  reference: "The original Transformer is a full encoder-decoder for seq2seq; BERT keeps only the encoder. A divergence in use rather than a factual contradiction."
+- id: t4_best_task_method
+  tier: 4
+  question: "Across these papers, is fine-tuning, prompting, or alignment the best route to good task behavior?"
+  reference: "Genuine tension: BERT advances fine-tuning, GPT-3 few-shot prompting, InstructGPT RLHF alignment. Each favors a different method; no single answer."
