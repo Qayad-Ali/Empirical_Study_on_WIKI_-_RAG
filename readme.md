@@ -4,6 +4,7 @@ for question-answering over basic ML papers, with the generator model held const
 
 **Headline finding:** on 4 papers with a local qwen3:8b, RAG significantly beat the wiki (overall 1.79 vs 1.29 on a 0-2 scale) and cost less per query;
 the wiki won only on contradiction questions but failed on factual recall. See `reports/report.md`.
+To investigate the whole result view the reports and results file deeply.
 
 ## The two systems
 - **RAG** — chunk (220 words) -> MiniLM embeddings -> FAISS top-5 -> qwen3:8b answers.
