@@ -1,4 +1,4 @@
-# wiki-vs-rag — When does a compiled LLM wiki beat RAG?
+# Empirical_Study_on_WIKI_-_RAG — When does a compiled LLM wiki beat RAG?
 A small benchmark comparing **vanilla RAG** against a compiled **LLM wiki**(introduced by Andrej Karpathy)
 for question-answering over basic ML papers, with the generator model held constant.
 
